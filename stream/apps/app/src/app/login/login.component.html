@@ -1,0 +1,29 @@
+<div class="stream-login mt-5 p-3 border border-primary-rounded">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 my-3">
+        <h1 class="display-3 border-bottom">User Login</h1>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Username</mat-label>
+          <input required [(ngModel)] ='credentials.username' matInput placeholder="Enter Your Username" />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Password</mat-label>
+          <input required [(ngModel)] ='credentials.password'matInput [type]="passwordVisible?'text':'password'" placeholder="Enter Your Password" />
+          <span matSuffix (click)="passwordVisible=!passwordVisible" *ngIf="!passwordVisible" class="material-icons pointer"> visibility </span>
+          <span matSuffix (click)="passwordVisible=!passwordVisible" *ngIf="passwordVisible" class="material-icons pointer"> visibility_off </span>
+        </mat-form-field>
+      </div>
+      <div class="col-12 mt-4 stream-login_actions d-flex justify-content-end">
+        <button class="btn border border-danger text-danger mr-3">
+          Cancel
+        </button>
+        <button [disabled]='!isValid()' class="btn btn-primary" (click)='login()'>Login</button>
+      </div>
+    </div>
+  </div>
+</div>
